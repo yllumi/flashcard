@@ -52,15 +52,40 @@
             width: 90%;
             max-width: 800px;
             height: 85%;
+            max-height: 85%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             position: relative;
             overflow: hidden;
             transition: opacity 0.2s ease, transform 0.2s ease;
-            /* will-change: transform, opacity;
+            will-change: transform, opacity;
             transform: translateZ(0);
-            -webkit-transform: translateZ(0); */
+            -webkit-transform: translateZ(0);
+        }
+
+        .content-area {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 100%;
+            padding-right: 5px;
+        }
+
+        /* Custom scrollbar for content area */
+        .content-area::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .content-area::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+        }
+
+        .content-area::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
         }
 
         /* Drag effect - Desktop */
@@ -106,12 +131,6 @@
             right: 0;
             height: 6px;
             background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-        }
-
-        .content-area {
-            position: relative;
-            z-index: 1;
-            text-align: center;
         }
 
         .swiper-slide h1 {
@@ -166,43 +185,44 @@
 
         /* Compact content for dense slides */
         .content-compact h1 {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
         }
 
         .content-compact p {
-            font-size: 1.15rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.45;
         }
 
         .content-compact ul {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin: 15px auto;
+            font-size: 1.05rem;
+            line-height: 1.45;
+            margin: 12px auto;
         }
 
         .content-compact ul li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         @media (max-width: 768px) {
             .content-compact h1 {
-                font-size: 1.8rem !important;
-                margin-bottom: 15px !important;
+                font-size: 1.4rem !important;
+                margin-bottom: 12px !important;
             }
 
             .content-compact p {
-                font-size: 1rem;
-                line-height: 1.4;
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
             }
 
             .content-compact ul {
-                font-size: 0.95rem;
-                line-height: 1.4;
+                font-size: 0.8rem !important;
+                line-height: 1.4 !important;
+                margin: 10px auto !important;
             }
 
             .content-compact ul li {
-                margin-bottom: 5px;
+                margin-bottom: 4px !important;
             }
         }
 
@@ -427,52 +447,96 @@
         }
 
         @media (max-width: 768px) {
+            .swiper {
+                padding: 10px 0;
+            }
+
             .card-inner {
-                padding: 40px 30px;
-                margin: 20px;
-                height: 85%;
-                min-height: 0;
+                padding: 25px 20px;
+                padding-top: 50px;
+                margin: 15px;
+                height: 80%;
+                max-height: 80%;
+                width: 92%;
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            .content-area {
+                padding-right: 3px;
             }
             
             .swiper-slide h1 {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+                line-height: 1.3;
             }
             
             .swiper-slide p {
-                font-size: 1.1rem;
-                line-height: 1.6;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .swiper-slide ul {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 12px auto;
+                padding-left: 20px;
+            }
+
+            .swiper-slide ul li {
+                margin-bottom: 6px;
+            }
+
+            .swiper-slide .subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
             }
 
             .slide-counter {
-                top: 15px;
-                right: 15px;
-                padding: 6px 12px;
-                font-size: 0.85rem;
+                top: 12px;
+                right: 12px;
+                padding: 5px 10px;
+                font-size: 0.75rem;
             }
 
-            .swiper-pagination {
-                bottom: 20px !important;
+            .progress-container {
+                bottom: 20px;
+                width: 85%;
             }
 
             .keyboard-hint {
-                display: none; /* Hide on mobile - not needed */
+                display: none;
             }
 
             /* Prevent pull-to-refresh and overscroll */
             body {
                 overscroll-behavior: none;
-                touch-action: pan-x;
+                touch-action: pan-x pan-y;
             }
 
-            /* Reduce animation complexity on mobile */
-            .swiper-slide,
+            /* Better card stacking on mobile */
+            .swiper-cards .swiper-slide {
+                width: 90% !important;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 375px) {
             .card-inner {
-                backface-visibility: hidden;
-                -webkit-backface-visibility: hidden;
-                perspective: 1000px;
-                -webkit-perspective: 1000px;
+                padding: 20px 15px;
+                padding-top: 45px;
+            }
+
+            .swiper-slide h1 {
+                font-size: 1.4rem;
+            }
+
+            .swiper-slide p {
+                font-size: 0.9rem;
+            }
+
+            .swiper-slide ul {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1044,19 +1108,20 @@
 <script>
     // Detect if mobile for performance optimizations
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isSmallMobile = window.matchMedia('(max-width: 375px)').matches;
 
     // Initialize Swiper with mobile optimizations
     const swiper = new Swiper('.mySwiper', {
         effect: 'cards',
-        grabCursor: !isMobile, // Disable grab cursor on mobile for performance
+        grabCursor: !isMobile,
         centeredSlides: true,
-        slidesPerView: 'auto',
-        speed: isMobile ? 250 : 300, // Faster transitions on mobile
+        slidesPerView: 1,
+        speed: isMobile ? 200 : 300,
         cardsEffect: {
-            perSlideOffset: isMobile ? 6 : 8, // Reduce offset on mobile
-            perSlideRotate: isMobile ? 1.5 : 2, // Reduce rotation on mobile
+            perSlideOffset: isMobile ? 4 : 8,
+            perSlideRotate: isMobile ? 1 : 2,
             rotate: true,
-            slideShadows: false,
+            slideShadows: !isMobile, // Disable shadows on mobile for performance
         },
 
         keyboard: {
