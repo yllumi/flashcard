@@ -131,6 +131,39 @@
             margin: 0 auto;
         }
 
+        .swiper-slide ul {
+            text-align: left;
+            color: #5a6c7d;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 20px auto;
+            padding-left: 30px;
+        }
+
+        .swiper-slide ul li {
+            margin-bottom: 10px;
+        }
+
+        .swiper-slide .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .swiper-slide .highlight {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .swiper-slide .emoji-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
         .slide-counter {
             position: absolute;
             top: 20px;
@@ -184,8 +217,104 @@
             color: #01579b;
         }
 
-        .swiper-slide.card-blue p {
+        .swiper-slide.card-blue p,
+        .swiper-slide.card-blue ul {
             color: #0d47a1;
+        }
+
+        /* Card Green */
+        .swiper-slide.card-green .slide-counter {
+            background: rgba(255, 255, 255, 0.8);
+            color: #1b5e20;
+        }
+
+        .swiper-slide.card-green .card-inner {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+        }
+
+        .swiper-slide.card-green h1 {
+            color: #1b5e20;
+        }
+
+        .swiper-slide.card-green p,
+        .swiper-slide.card-green ul {
+            color: #2e7d32;
+        }
+
+        /* Card Purple */
+        .swiper-slide.card-purple .slide-counter {
+            background: rgba(255, 255, 255, 0.8);
+            color: #4a148c;
+        }
+
+        .swiper-slide.card-purple .card-inner {
+            background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+        }
+
+        .swiper-slide.card-purple h1 {
+            color: #4a148c;
+        }
+
+        .swiper-slide.card-purple p,
+        .swiper-slide.card-purple ul {
+            color: #6a1b9a;
+        }
+
+        /* Card Red */
+        .swiper-slide.card-red .slide-counter {
+            background: rgba(255, 255, 255, 0.8);
+            color: #b71c1c;
+        }
+
+        .swiper-slide.card-red .card-inner {
+            background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+        }
+
+        .swiper-slide.card-red h1 {
+            color: #b71c1c;
+        }
+
+        .swiper-slide.card-red p,
+        .swiper-slide.card-red ul {
+            color: #c62828;
+        }
+
+        /* Card Teal */
+        .swiper-slide.card-teal .slide-counter {
+            background: rgba(255, 255, 255, 0.8);
+            color: #004d40;
+        }
+
+        .swiper-slide.card-teal .card-inner {
+            background: linear-gradient(135deg, #b2dfdb 0%, #80cbc4 100%);
+        }
+
+        .swiper-slide.card-teal h1 {
+            color: #004d40;
+        }
+
+        .swiper-slide.card-teal p,
+        .swiper-slide.card-teal ul {
+            color: #00695c;
+        }
+
+        /* Card Lime (Yellow-Green) */
+        .swiper-slide.card-lime .slide-counter {
+            background: rgba(255, 255, 255, 0.8);
+            color: #33691e;
+        }
+
+        .swiper-slide.card-lime .card-inner {
+            background: linear-gradient(135deg, #f0f4c3 0%, #dce775 100%);
+        }
+
+        .swiper-slide.card-lime h1 {
+            color: #33691e;
+        }
+
+        .swiper-slide.card-lime p,
+        .swiper-slide.card-lime ul {
+            color: #558b2f;
         }
 
         @keyframes fadeInUp {
@@ -205,26 +334,42 @@
             overflow: hidden;
         }
 
-        /* Navigation indicators */
-        .swiper-pagination {
-            position: fixed !important;
-            bottom: 30px !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            width: auto !important;
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 400px;
+            z-index: 100;
         }
 
-        .swiper-pagination-bullet {
-            width: 12px !important;
-            height: 12px !important;
-            background: rgba(255, 255, 255, 0.4) !important;
-            margin: 0 6px !important;
-            opacity: 1 !important;
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        .swiper-pagination-bullet-active {
-            background: white !important;
-            transform: scale(1.3) !important;
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         /* Keyboard hint */
@@ -295,59 +440,555 @@
 <!-- Swiper -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <!-- Card 1: Cover -->
+        <div class="swiper-slide card-purple">
             <div class="card-inner">
-                <div class="slide-counter">1/5</div>
+                <div class="slide-counter">1/38</div>
                 <div class="content-area">
-                    <h1>Selamat Datang di Dunia Bisnis Digital!</h1>
-                    <p>RuangAI menyediakan pelajaran singkat dan ringkas tentang pemasaran, SEO, dan manajemen usaha kecil.</p>
+                    <p class="subtitle">Buku Saku</p>
+                    <h1>UMKM Naik Level di Era AI</h1>
+                    <p>Pelajari dasar-dasar dan cara menggunakan AI Generatif melalui panduan ringkas ini</p>
                 </div>
             </div>
         </div>
 
-        <div class="swiper-slide card-orange">
+        <!-- Card 2: Kata Pengantar -->
+        <div class="swiper-slide card-purple">
             <div class="card-inner">
-                <div class="slide-counter">2/5</div>
+                <div class="slide-counter">2/38</div>
                 <div class="content-area">
-                    <h1>Apa itu *Flashcard*?</h1>
-                    <p>Ini adalah format pembelajaran *bite-sized* (porsi kecil) yang dirancang agar Anda bisa belajar di mana saja, bahkan saat menunggu kopi.</p>
+                    <h1>Kata Pengantar</h1>
+                    <p>Artificial Intelligence (AI) atau Kecerdasan Buatan kini semakin dekat dengan kehidupan kita. Buku kecil ini dibuat agar pelaku UMKM bisa memahami dasar-dasar AI dengan mudah. Isinya ringan, contoh-contohnya dekat dengan usaha sehari-hari. Semoga membantu membuka peluang baru.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="swiper-slide">
+
+        <!-- Card 3: Daftar Isi -->
+        <div class="swiper-slide card-purple">
             <div class="card-inner">
-                <div class="slide-counter">3/5</div>
+                <div class="slide-counter">3/38</div>
                 <div class="content-area">
-                    <h1>Kunci Sukses Pemasaran</h1>
-                    <p>Ketahui target audiens Anda. Konten yang hebat tidak ada gunanya jika tidak dilihat oleh orang yang tepat. Fokus pada nilai, bukan hanya penjualan.</p>
+                    <h1>Daftar Isi</h1>
+                    <ul>
+                        <li>A. Pengenalan AI</li>
+                        <li>B. Produktivitas dengan AI</li>
+                        <li>C. Prompt Engineering</li>
+                        <li>D. Responsible AI</li>
+                        <li>E. Unggul di Era AI</li>
+                        <li>Glosarium & Cheat Sheet Prompt</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        
+
+        <!-- Card 4: Section A Header -->
         <div class="swiper-slide card-blue">
             <div class="card-inner">
-                <div class="slide-counter">4/5</div>
+                <div class="slide-counter">4/38</div>
                 <div class="content-area">
-                    <h1>Mengoptimalkan untuk Seluler</h1>
-                    <p>Mayoritas pengguna mengakses web dari ponsel. Pastikan situs Anda responsif dan waktu pemuatannya (loading time) cepat. Ini adalah kunci SEO.</p>
+                    <p class="subtitle">Bagian A</p>
+                    <h1>Pengenalan AI</h1>
+                    <p>Memahami dasar-dasar Artificial Intelligence untuk pelaku UMKM</p>
                 </div>
             </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Card 5: Apa Itu AI? -->
+        <div class="swiper-slide card-blue">
             <div class="card-inner">
-                <div class="slide-counter">5/5</div>
+                <div class="slide-counter">5/38</div>
                 <div class="content-area">
-                    <h1>Anda Selesai! 🎉</h1>
-                    <p>Hebat! Anda baru saja menyelesaikan 5 pelajaran singkat. Teruslah belajar untuk mengembangkan bisnis Anda.</p>
+                    <h1>Apa Itu AI?</h1>
+                    <p>Artificial Intelligence (AI) atau Kecerdasan Buatan adalah teknologi yang membuat komputer bisa "belajar" dari data sehingga mampu membantu manusia mengambil keputusan.</p>
+                    <p style="margin-top: 20px;">AI bukan makhluk hidup. AI hanya mesin yang bekerja memakai pola dari data yang pernah dipelajarinya.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: Cara Kerja AI -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">6/38</div>
+                <div class="content-area">
+                    <h1>Bagaimana Cara Kerja AI?</h1>
+                    <p>AI bekerja dengan tiga langkah sederhana:</p>
+                    <ul>
+                        <li>Menerima contoh atau data</li>
+                        <li>Mencari pola dari data tersebut</li>
+                        <li>Memberikan prediksi atau jawaban</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Contoh: AI belajar dari ratusan foto minuman, lalu bisa membantu membuat foto produk baru yang lebih menarik.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7: Jenis-Jenis AI -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">7/38</div>
+                <div class="content-area">
+                    <h1>Jenis-Jenis AI</h1>
+                    <p>Dua kategori yang mudah dipahami:</p>
+                    <ul>
+                        <li><strong>AI Sederhana (Narrow AI):</strong> Fokus pada satu tugas. Contoh: aplikasi navigasi, rekomendasi belanja.</li>
+                        <li><strong>AI Generatif:</strong> Bisa membuat konten baru seperti gambar, tulisan, dan suara. Ini jenis yang sedang populer.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8: Model Pembelajaran AI -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">8/38</div>
+                <div class="content-area">
+                    <h1>Model Pembelajaran dalam AI</h1>
+                    <p>Tiga cara AI belajar:</p>
+                    <ul>
+                        <li><strong>Supervised Learning:</strong> AI belajar dari contoh berlabel</li>
+                        <li><strong>Unsupervised Learning:</strong> AI mencari pola sendiri</li>
+                        <li><strong>Reinforcement Learning:</strong> AI belajar dari percobaan dan kesalahan</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Prinsipnya: AI makin pintar kalau datanya tepat dan banyak.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9: Jaringan Saraf Tiruan -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">9/38</div>
+                <div class="content-area">
+                    <h1>Jenis-Jenis Jaringan Saraf Tiruan</h1>
+                    <p>Jaringan saraf tiruan menyerupai cara kerja otak manusia:</p>
+                    <ul>
+                        <li><strong>Feedforward:</strong> Paling dasar untuk pengenalan pola</li>
+                        <li><strong>CNN:</strong> Hebat membaca gambar</li>
+                        <li><strong>RNN:</strong> Cocok untuk teks bertahap</li>
+                        <li><strong>GAN:</strong> Mampu membuat gambar baru</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 10: Manfaat AI untuk UMKM -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">10/38</div>
+                <div class="content-area">
+                    <h1>Manfaat AI untuk UMKM</h1>
+                    <p>AI bisa membantu UMKM:</p>
+                    <ul>
+                        <li>Membuat foto produk</li>
+                        <li>Menulis caption</li>
+                        <li>Membuat ide promosi</li>
+                        <li>Mengatur stok</li>
+                        <li>Menulis pesan pelanggan</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Dengan AI, kerja jadi lebih cepat dan biaya promosi bisa lebih murah.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 11: AI vs Machine Learning -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">11/38</div>
+                <div class="content-area">
+                    <h1>AI vs Machine Learning</h1>
+                    <p>AI adalah "payung besar". Machine Learning (ML) adalah salah satu bagian di dalamnya.</p>
+                    <p style="margin-top: 20px;">ML adalah teknik yang dipakai AI untuk belajar dari data. Keduanya sering dianggap sama, tetapi ML lebih spesifik.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 12: AI di Sekitar Kita -->
+        <div class="swiper-slide card-blue">
+            <div class="card-inner">
+                <div class="slide-counter">12/38</div>
+                <div class="content-area">
+                    <h1>AI di Sekitar Kita</h1>
+                    <p>Tanpa disadari, kita sudah memakai AI setiap hari:</p>
+                    <ul>
+                        <li>Peta di ponsel</li>
+                        <li>Filter kamera</li>
+                        <li>Rekomendasi produk</li>
+                        <li>Chatbot layanan pelanggan</li>
+                        <li>Aplikasi kasir</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Teknologi ini sudah menjadi bagian hidup modern.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 13: Section B Header -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">13/38</div>
+                <div class="content-area">
+                    <p class="subtitle">Bagian B</p>
+                    <h1>Produktivitas dengan AI</h1>
+                    <p>Meningkatkan efisiensi usaha dengan teknologi AI</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 14: AI Tradisional vs AI Generatif -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">14/38</div>
+                <div class="content-area">
+                    <h1>AI Tradisional vs AI Generatif</h1>
+                    <p><strong>AI tradisional</strong> fokus pada analisis data.</p>
+                    <p style="margin-top: 15px;"><strong>AI generatif</strong> bisa membuat hal baru dari pola.</p>
+                    <p style="margin-top: 20px;"><em>Contoh: AI membaca data penjualan (tradisional) vs AI membuat foto produk minuman dengan latar estetik (generatif).</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 15: Cara Kerja AI Tradisional & Generatif -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">15/38</div>
+                <div class="content-area">
+                    <h1>Cara Kerja AI Tradisional & Generatif</h1>
+                    <p>AI tradisional bekerja seperti <strong>"asisten yang menghitung"</strong>.</p>
+                    <p style="margin-top: 20px;">AI generatif bekerja seperti <strong>"asisten yang bisa berkreasi"</strong>.</p>
+                    <p style="margin-top: 20px;"><em>Keduanya saling melengkapi tergantung kebutuhan usaha.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 16: Kapan Menggunakan AI Tradisional? -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">16/38</div>
+                <div class="content-area">
+                    <h1>Kapan Menggunakan AI Tradisional?</h1>
+                    <p>Jika kamu ingin menganalisis data:</p>
+                    <ul>
+                        <li>Melihat tren penjualan</li>
+                        <li>Menghitung kebutuhan stok</li>
+                        <li>Memprediksi barang mana yang laku</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>AI tradisional membantu melihat angka agar kamu bisa mengambil keputusan.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 17: Kapan Menggunakan AI Generatif? -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">17/38</div>
+                <div class="content-area">
+                    <h1>Kapan Menggunakan AI Generatif?</h1>
+                    <p>Jika kamu butuh konten cepat:</p>
+                    <ul>
+                        <li>Foto produk minuman</li>
+                        <li>Desain poster sederhana</li>
+                        <li>Caption untuk promosi</li>
+                        <li>Ide menu baru</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>AI generatif sangat membantu UMKM kecil yang belum punya tim desain.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 18: Kombinasi Keduanya -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">18/38</div>
+                <div class="content-area">
+                    <h1>Kombinasi Keduanya</h1>
+                    <p>Sebagai Pelaku UMKM, kamu bisa menggabungkan keduanya:</p>
+                    <p style="margin-top: 20px;">AI tradisional membaca tren pembeli, AI generatif menciptakan konten promosi yang sesuai tren tersebut.</p>
+                    <p style="margin-top: 20px;"><strong>Hasilnya: pemasaran lebih tepat sasaran.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 19: Contoh Prompt -->
+        <div class="swiper-slide card-green">
+            <div class="card-inner">
+                <div class="slide-counter">19/38</div>
+                <div class="content-area">
+                    <h1>Contoh Prompt dan Hasil AI Generatif</h1>
+                    <p style="background: #f5f5f5; padding: 20px; border-radius: 10px; font-style: italic;">"Foto minuman kemasan rasa mangga, latar belakang cerah, gaya studio lighting, tampak profesional."</p>
+                    <p style="margin-top: 20px;">Hasilnya bisa berupa foto produk yang terlihat lebih rapi dan menarik untuk promosi.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 20: Section C Header -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">20/38</div>
+                <div class="content-area">
+                    <p class="subtitle">Bagian C</p>
+                    <h1>Prompt Engineering</h1>
+                    <p>Seni memberikan perintah yang tepat kepada AI</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 21: Apa Itu Prompt? -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">21/38</div>
+                <div class="content-area">
+                    <h1>Apa Itu Prompt?</h1>
+                    <p>Prompt adalah perintah yang kamu berikan ke AI. Semakin jelas perintahnya, semakin bagus hasilnya.</p>
+                    <p style="margin-top: 20px; background: #f5f5f5; padding: 15px; border-radius: 10px; font-style: italic;">"Tolong buatkan caption promosi minuman segar untuk cuaca panas."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 22: Mengapa Prompt Penting? -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">22/38</div>
+                <div class="content-area">
+                    <h1>Mengapa Prompt Penting?</h1>
+                    <p>AI tidak membaca pikiran. AI hanya mengikuti instruksi.</p>
+                    <p style="margin-top: 20px;"><strong>Prompt yang tepat menghemat waktu dan menghasilkan konten yang sesuai kebutuhan bisnis.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 23: Jenis-Jenis Prompt -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">23/38</div>
+                <div class="content-area">
+                    <h1>Jenis-Jenis Prompt</h1>
+                    <ul>
+                        <li>Prompt perintah langsung</li>
+                        <li>Prompt deskriptif</li>
+                        <li>Prompt contoh (few-shot)</li>
+                        <li>Prompt peran (role-based)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Semua digunakan sesuai kebutuhan.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 24: Tips Membuat Prompt -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">24/38</div>
+                <div class="content-area">
+                    <h1>Tips Membuat Prompt Bagus</h1>
+                    <p>Gunakan rumus sederhana:</p>
+                    <p style="margin-top: 15px; font-size: 1.2rem;"><strong>Apa yang kamu mau + Gaya + Format hasil</strong></p>
+                    <p style="margin-top: 20px; background: #f5f5f5; padding: 15px; border-radius: 10px; font-style: italic;">"Buatkan caption 3 kalimat, gaya ramah, untuk minuman kemasan rasa lemon."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 25: Studi Kasus UMKM -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">25/38</div>
+                <div class="content-area">
+                    <h1>Studi Kasus UMKM: Minuman Kemasan</h1>
+                    <p>Seorang penjual minuman ingin foto produk baru. Ia menulis:</p>
+                    <p style="margin-top: 15px; background: #f5f5f5; padding: 15px; border-radius: 10px; font-style: italic;">"Foto minuman kemasan jeruk dengan es, latar putih bersih, cahaya lembut, tampilan segar."</p>
+                    <p style="margin-top: 15px;"><strong>AI menghasilkan gambar untuk katalog online tanpa harus menyewa fotografer.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 26: Kesalahan Umum Prompt -->
+        <div class="swiper-slide card-purple">
+            <div class="card-inner">
+                <div class="slide-counter">26/38</div>
+                <div class="content-area">
+                    <h1>Kesalahan Umum dalam Prompt</h1>
+                    <p>Prompt terlalu pendek, tidak jelas, atau menggunakan istilah yang rancu bisa membuat hasilnya tidak sesuai.</p>
+                    <p style="margin-top: 20px;"><strong>Selalu perbaiki prompt secara bertahap sampai hasilnya pas.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 27: Section D Header -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">27/38</div>
+                <div class="content-area">
+                    <p class="subtitle">Bagian D</p>
+                    <h1>Responsible AI</h1>
+                    <p>Menggunakan AI secara bijak dan bertanggung jawab</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 28: Apa Itu Responsible AI? -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">28/38</div>
+                <div class="content-area">
+                    <h1>Apa Itu Responsible AI?</h1>
+                    <p>Responsible AI berarti menggunakan teknologi secara bijak, aman, dan tidak merugikan orang lain.</p>
+                    <p style="margin-top: 20px;"><strong>Pengguna dan pembuat AI sama-sama memiliki tanggung jawab.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 29: Dimensi Responsible AI -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">29/38</div>
+                <div class="content-area">
+                    <h1>Dimensi-Dimensi Responsible AI</h1>
+                    <p>Terdapat beberapa prinsip:</p>
+                    <ul>
+                        <li>Keamanan</li>
+                        <li>Privasi</li>
+                        <li>Akurasi</li>
+                        <li>Transparansi</li>
+                        <li>Keadilan</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Prinsip ini menjaga agar AI bermanfaat bagi semua.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 30: Tantangan AI Generatif -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">30/38</div>
+                <div class="content-area">
+                    <h1>Tantangan AI Generatif</h1>
+                    <p>AI kadang menghasilkan gambar atau informasi yang tidak benar.</p>
+                    <p style="margin-top: 20px;">Ada risiko misinformasi atau konten menyesatkan.</p>
+                    <p style="margin-top: 20px;"><strong>Pengguna perlu selalu memeriksa hasilnya.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 31: Prinsip OECD -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">31/38</div>
+                <div class="content-area">
+                    <h1>Prinsip OECD Tentang AI</h1>
+                    <p>OECD menekankan:</p>
+                    <p style="margin-top: 15px;"><strong>AI harus aman, adil, transparan, dan menghormati hak manusia.</strong></p>
+                    <p style="margin-top: 20px;"><em>Bagi UMKM, prinsip ini berarti memakai AI secara bertanggung jawab kepada pelanggan.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 32: Contoh Penipuan AI -->
+        <div class="swiper-slide card-orange">
+            <div class="card-inner">
+                <div class="slide-counter">32/38</div>
+                <div class="content-area">
+                    <h1>⚠️ Contoh Penipuan Menggunakan AI</h1>
+                    <p>Deepfake suara atau pesan palsu makin sering muncul.</p>
+                    <p style="margin-top: 20px;"><strong>Jika ada pesan mencurigakan yang meminta uang atau data pribadi, selalu verifikasi dulu.</strong></p>
+                    <p style="margin-top: 20px;"><em>AI bisa dipakai untuk kebaikan, tapi seringkali disalahgunakan.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 33: Section E Header -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">33/38</div>
+                <div class="content-area">
+                    <p class="subtitle">Bagian E</p>
+                    <h1>Unggul di Era AI</h1>
+                    <p>Strategi UMKM untuk tetap relevan dan kompetitif</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 34: Mengapa UMKM Perlu Adaptasi -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">34/38</div>
+                <div class="content-area">
+                    <h1>Mengapa UMKM Perlu Adaptasi?</h1>
+                    <p>Pasar bergerak cepat.</p>
+                    <p style="margin-top: 20px;"><strong>Pelaku UMKM yang bisa memanfaatkan AI akan lebih unggul dalam pemasaran, kreativitas, dan pelayanan pelanggan.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 35: Cara Tetap Relevan -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">35/38</div>
+                <div class="content-area">
+                    <h1>Cara Tetap Relevan</h1>
+                    <p>Belajar sedikit demi sedikit, mulai dari tugas yang sederhana:</p>
+                    <ul>
+                        <li>Foto produk</li>
+                        <li>Caption</li>
+                        <li>Poster</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Tidak perlu jadi ahli untuk memulai.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 36: Glosarium 1 -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">36/38</div>
+                <div class="content-area">
+                    <h1>📚 Glosarium</h1>
+                    <ul>
+                        <li><strong>Prompt:</strong> Perintah yang diberikan ke AI</li>
+                        <li><strong>Generate:</strong> Proses AI membuat konten</li>
+                        <li><strong>Model:</strong> "Otak digital" yang digunakan AI</li>
+                        <li><strong>Dataset:</strong> Kumpulan contoh yang dipakai AI untuk belajar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 37: Cheat Sheet Prompt -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">37/38</div>
+                <div class="content-area">
+                    <h1>📝 Cheat Sheet Prompt UMKM</h1>
+                    <p>Contoh siap pakai:</p>
+                    <ul>
+                        <li>"Buatkan caption promosi minuman segar untuk cuaca panas."</li>
+                        <li>"Buatkan ide desain poster minuman rasa buah dengan gaya ceria."</li>
+                        <li>"Foto minuman kemasan lemon, studio lighting, latar cerah, gaya minimalis."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 38: Penutup -->
+        <div class="swiper-slide card-lime">
+            <div class="card-inner">
+                <div class="slide-counter">38/38</div>
+                <div class="content-area">
+                    <h1>Penutup 🎉</h1>
+                    <p>AI bukan pengganti kreativitas manusia—AI hanyalah alat bantu.</p>
+                    <p style="margin-top: 20px;">Dengan memahami dasar-dasarnya, pelaku UMKM dapat memanfaatkan teknologi ini untuk menekan biaya, mempercepat kerja, dan memperluas peluang usaha.</p>
+                    <p style="margin-top: 20px;"><strong>Pelajari lebih lanjut di www.ruangai.id</strong></p>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
+</div>
+
+<!-- Progress Bar -->
+<div class="progress-container">
+    <div class="progress-info">
+        <span class="progress-current">1 / 38</span>
+        <span class="progress-percent">0%</span>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 2.63%;"></div>
+    </div>
 </div>
 
 <!-- Keyboard hint -->
@@ -359,13 +1000,53 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    // Background gradients for each card
+    // Background gradients for each card (38 total)
+    // Soft colors per section:
+    // Cover & Intro (1-3): Soft purple/lavender
+    // Bab A - Pengenalan AI (4-12): Soft blue
+    // Bab B - Produktivitas (13-19): Soft green
+    // Bab C - Prompt Engineering (20-26): Soft purple
+    // Bab D - Responsible AI (27-32): Soft orange/peach
+    // Bab E - Unggul di Era AI (33-38): Soft lime/yellow-green
     const backgroundGradients = [
-        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Card 1 - Blue to Purple
-        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', // Card 2 - Pink to Red
-        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', // Card 3 - Blue to Cyan
-        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', // Card 4 - Green to Turquoise
-        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'  // Card 5 - Pink to Yellow
+        'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', // Card 1 - Cover (Lavender to Light Blue)
+        'linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%)', // Card 2 - Kata Pengantar (Soft Gray)
+        'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', // Card 3 - Daftar Isi (Lavender)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 4 - Bab A Header (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 5 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 6 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 7 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 8 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 9 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 10 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 11 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 12 - Bab A (Soft Blue)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 13 - Bab B Header (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 14 - Bab B (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 15 - Bab B (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 16 - Bab B (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 17 - Bab B (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 18 - Bab B (Soft Green)
+        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 19 - Bab B (Soft Green)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 20 - Bab C Header (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 21 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 22 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 23 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 24 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 25 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 26 - Bab C (Soft Purple)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 27 - Bab D Header (Soft Orange)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 28 - Bab D (Soft Orange)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 29 - Bab D (Soft Orange)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 30 - Bab D (Soft Orange)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 31 - Bab D (Soft Orange)
+        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 32 - Bab D (Soft Orange)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 33 - Bab E Header (Soft Lime)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 34 - Bab E (Soft Lime)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 35 - Bab E (Soft Lime)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 36 - Bab E Glosarium (Soft Lime)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 37 - Bab E Cheat Sheet (Soft Lime)
+        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)'  // Card 38 - Bab E Penutup (Soft Lime)
     ];
 
     // Detect if mobile for performance optimizations
@@ -384,10 +1065,7 @@
             rotate: true,
             slideShadows: false,
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -400,6 +1078,15 @@
                 requestAnimationFrame(() => {
                     document.body.style.background = backgroundGradients[this.activeIndex];
                 });
+                
+                // Update progress bar
+                const totalSlides = this.slides.length;
+                const currentSlide = this.activeIndex + 1;
+                const progressPercent = (currentSlide / totalSlides) * 100;
+                
+                document.querySelector('.progress-current').textContent = `${currentSlide} / ${totalSlides}`;
+                document.querySelector('.progress-percent').textContent = `${Math.round(progressPercent)}%`;
+                document.querySelector('.progress-fill').style.width = `${progressPercent}%`;
                 
                 // Remove dragging class from all cards
                 const cards = document.querySelectorAll('.card-inner');
