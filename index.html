@@ -58,9 +58,9 @@
             position: relative;
             overflow: hidden;
             transition: opacity 0.2s ease, transform 0.2s ease;
-            will-change: transform, opacity;
+            /* will-change: transform, opacity;
             transform: translateZ(0);
-            -webkit-transform: translateZ(0);
+            -webkit-transform: translateZ(0); */
         }
 
         /* Drag effect - Desktop */
@@ -1042,55 +1042,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    // Background gradients for each card (38 total)
-    // Soft colors per section:
-    // Cover & Intro (1-3): Soft purple/lavender
-    // Bab A - Pengenalan AI (4-12): Soft blue
-    // Bab B - Produktivitas (13-19): Soft green
-    // Bab C - Prompt Engineering (20-26): Soft purple
-    // Bab D - Responsible AI (27-32): Soft orange/peach
-    // Bab E - Unggul di Era AI (33-38): Soft lime/yellow-green
-    const backgroundGradients = [
-        'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', // Card 1 - Cover (Lavender to Light Blue)
-        'linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%)', // Card 2 - Kata Pengantar (Soft Gray)
-        'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', // Card 3 - Daftar Isi (Lavender)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 4 - Bab A Header (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 5 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 6 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 7 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 8 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 9 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 10 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 11 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #a8d8ea 0%, #89c4e8 100%)', // Card 12 - Bab A (Soft Blue)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 13 - Bab B Header (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 14 - Bab B (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 15 - Bab B (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 16 - Bab B (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 17 - Bab B (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 18 - Bab B (Soft Green)
-        'linear-gradient(135deg, #b8e6cf 0%, #8fd9a8 100%)', // Card 19 - Bab B (Soft Green)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 20 - Bab C Header (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 21 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 22 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 23 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 24 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 25 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #d4b8e0 0%, #c9a8d9 100%)', // Card 26 - Bab C (Soft Purple)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 27 - Bab D Header (Soft Orange)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 28 - Bab D (Soft Orange)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 29 - Bab D (Soft Orange)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 30 - Bab D (Soft Orange)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 31 - Bab D (Soft Orange)
-        'linear-gradient(135deg, #ffd9b3 0%, #ffcba4 100%)', // Card 32 - Bab D (Soft Orange)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 33 - Bab E Header (Soft Lime)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 34 - Bab E (Soft Lime)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 35 - Bab E (Soft Lime)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 36 - Bab E Glosarium (Soft Lime)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)', // Card 37 - Bab E Cheat Sheet (Soft Lime)
-        'linear-gradient(135deg, #d4e8b8 0%, #c5e0a5 100%)'  // Card 38 - Bab E Penutup (Soft Lime)
-    ];
-
     // Detect if mobile for performance optimizations
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
@@ -1115,12 +1066,7 @@
         passiveListeners: true, // Use passive event listeners for better scroll performance
         touchEventsTarget: 'container',
         on: {
-            slideChange: function () {
-                // Update background gradient using requestAnimationFrame for smoother updates
-                requestAnimationFrame(() => {
-                    document.body.style.background = backgroundGradients[this.activeIndex];
-                });
-                
+            slideChange: function () {                
                 // Update progress bar
                 const totalSlides = this.slides.length;
                 const currentSlide = this.activeIndex + 1;
@@ -1159,9 +1105,6 @@
             }
         }
     });
-
-    // Set initial background
-    document.body.style.background = backgroundGradients[0];
 
     // Desktop-only mouse drag support (skip on mobile for performance)
     if (!isMobile) {
