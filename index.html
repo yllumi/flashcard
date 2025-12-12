@@ -164,6 +164,48 @@
             margin-bottom: 20px;
         }
 
+        /* Compact content for dense slides */
+        .content-compact h1 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .content-compact p {
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+
+        .content-compact ul {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 15px auto;
+        }
+
+        .content-compact ul li {
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .content-compact h1 {
+                font-size: 1.8rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            .content-compact p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .content-compact ul {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            .content-compact ul li {
+                margin-bottom: 5px;
+            }
+        }
+
         .slide-counter {
             position: absolute;
             top: 20px;
@@ -453,7 +495,7 @@
         </div>
 
         <!-- Card 2: Kata Pengantar -->
-        <div class="swiper-slide card-purple">
+        <div class="swiper-slide">
             <div class="card-inner">
                 <div class="slide-counter">2/38</div>
                 <div class="content-area">
@@ -464,7 +506,7 @@
         </div>
 
         <!-- Card 3: Daftar Isi -->
-        <div class="swiper-slide card-purple">
+        <div class="swiper-slide">
             <div class="card-inner">
                 <div class="slide-counter">3/38</div>
                 <div class="content-area">
@@ -509,7 +551,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">6/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Bagaimana Cara Kerja AI?</h1>
                     <p>AI bekerja dengan tiga langkah sederhana:</p>
                     <ul>
@@ -526,7 +568,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">7/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Jenis-Jenis AI</h1>
                     <p>Dua kategori yang mudah dipahami:</p>
                     <ul>
@@ -541,7 +583,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">8/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Model Pembelajaran dalam AI</h1>
                     <p>Tiga cara AI belajar:</p>
                     <ul>
@@ -558,7 +600,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">9/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Jenis-Jenis Jaringan Saraf Tiruan</h1>
                     <p>Jaringan saraf tiruan menyerupai cara kerja otak manusia:</p>
                     <ul>
@@ -575,7 +617,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">10/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Manfaat AI untuk UMKM</h1>
                     <p>AI bisa membantu UMKM:</p>
                     <ul>
@@ -606,7 +648,7 @@
         <div class="swiper-slide card-blue">
             <div class="card-inner">
                 <div class="slide-counter">12/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>AI di Sekitar Kita</h1>
                     <p>Tanpa disadari, kita sudah memakai AI setiap hari:</p>
                     <ul>
@@ -663,7 +705,7 @@
         <div class="swiper-slide card-green">
             <div class="card-inner">
                 <div class="slide-counter">16/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Kapan Menggunakan AI Tradisional?</h1>
                     <p>Jika kamu ingin menganalisis data:</p>
                     <ul>
@@ -680,7 +722,7 @@
         <div class="swiper-slide card-green">
             <div class="card-inner">
                 <div class="slide-counter">17/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Kapan Menggunakan AI Generatif?</h1>
                     <p>Jika kamu butuh konten cepat:</p>
                     <ul>
@@ -789,7 +831,7 @@
         <div class="swiper-slide card-purple">
             <div class="card-inner">
                 <div class="slide-counter">25/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Studi Kasus UMKM: Minuman Kemasan</h1>
                     <p>Seorang penjual minuman ingin foto produk baru. Ia menulis:</p>
                     <p style="margin-top: 15px; background: #f5f5f5; padding: 15px; border-radius: 10px; font-style: italic;">"Foto minuman kemasan jeruk dengan es, latar putih bersih, cahaya lembut, tampilan segar."</p>
@@ -838,7 +880,7 @@
         <div class="swiper-slide card-orange">
             <div class="card-inner">
                 <div class="slide-counter">29/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>Dimensi-Dimensi Responsible AI</h1>
                     <p>Terdapat beberapa prinsip:</p>
                     <ul>
@@ -880,7 +922,7 @@
         </div>
 
         <!-- Card 32: Contoh Penipuan AI -->
-        <div class="swiper-slide card-orange">
+        <div class="swiper-slide card-orange content-compact">
             <div class="card-inner">
                 <div class="slide-counter">32/38</div>
                 <div class="content-area">
@@ -934,7 +976,7 @@
         </div>
 
         <!-- Card 36: Glosarium 1 -->
-        <div class="swiper-slide card-lime">
+        <div class="swiper-slide">
             <div class="card-inner">
                 <div class="slide-counter">36/38</div>
                 <div class="content-area">
@@ -950,10 +992,10 @@
         </div>
 
         <!-- Card 37: Cheat Sheet Prompt -->
-        <div class="swiper-slide card-lime">
+        <div class="swiper-slide">
             <div class="card-inner">
                 <div class="slide-counter">37/38</div>
-                <div class="content-area">
+                <div class="content-area content-compact">
                     <h1>📝 Cheat Sheet Prompt UMKM</h1>
                     <p>Contoh siap pakai:</p>
                     <ul>
@@ -966,7 +1008,7 @@
         </div>
 
         <!-- Card 38: Penutup -->
-        <div class="swiper-slide card-lime">
+        <div class="swiper-slide">
             <div class="card-inner">
                 <div class="slide-counter">38/38</div>
                 <div class="content-area">
