@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primer Mockup - Flashcard Interaktif</title>
+    <title>RuangAI Mockup - Flashcard Interaktif</title>
     
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -46,7 +46,7 @@
         .card-inner {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
             padding: 60px;
             margin: 40px;
             width: 90%;
@@ -57,28 +57,41 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
 
-        /* Drag effect */
-        .swiper-slide-active .card-inner.dragging {
-            opacity: 0.9;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            transform: scale(0.98);
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+        /* Drag effect - Desktop */
+        @media (min-width: 769px) {
+            .swiper-slide-active .card-inner.dragging {
+                opacity: 0.9;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                transform: scale(0.98) translateZ(0);
+                box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            }
+
+            .swiper-slide-active .card-inner.dragging::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(4px);
+                z-index: 1;
+            }
         }
 
-        .swiper-slide-active .card-inner.dragging::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-            z-index: 1;
+        /* Drag effect - Mobile (simplified, no blur) */
+        @media (max-width: 768px) {
+            .swiper-slide-active .card-inner.dragging {
+                opacity: 0.92;
+                transform: scale(0.98) translateZ(0);
+            }
         }
 
         .swiper-slide-active .card-inner.dragging .content-area {
@@ -122,15 +135,22 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: #666;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 10;
+        }
+
+        /* Enable blur only on desktop */
+        @media (min-width: 769px) {
+            .slide-counter {
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
         }
 
         /* Styling khusus untuk kartu dengan background color */
@@ -225,6 +245,7 @@
                 margin: 20px;
                 height: 85%;
                 min-height: 0;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             }
             
             .swiper-slide h1 {
@@ -238,10 +259,10 @@
             }
 
             .slide-counter {
-                top: 20px;
-                right: 20px;
-                padding: 8px 15px;
-                font-size: 0.9rem;
+                top: 15px;
+                right: 15px;
+                padding: 6px 12px;
+                font-size: 0.85rem;
             }
 
             .swiper-pagination {
@@ -249,14 +270,22 @@
             }
 
             .keyboard-hint {
-                bottom: 60px;
-                font-size: 0.8rem;
+                display: none; /* Hide on mobile - not needed */
             }
 
             /* Prevent pull-to-refresh and overscroll */
             body {
                 overscroll-behavior: none;
                 touch-action: pan-x;
+            }
+
+            /* Reduce animation complexity on mobile */
+            .swiper-slide,
+            .card-inner {
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                perspective: 1000px;
+                -webkit-perspective: 1000px;
             }
         }
     </style>
@@ -271,7 +300,7 @@
                 <div class="slide-counter">1/5</div>
                 <div class="content-area">
                     <h1>Selamat Datang di Dunia Bisnis Digital!</h1>
-                    <p>Primer menyediakan pelajaran singkat dan ringkas tentang pemasaran, SEO, dan manajemen usaha kecil.</p>
+                    <p>RuangAI menyediakan pelajaran singkat dan ringkas tentang pemasaran, SEO, dan manajemen usaha kecil.</p>
                 </div>
             </div>
         </div>
@@ -339,15 +368,19 @@
         'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'  // Card 5 - Pink to Yellow
     ];
 
-    // Initialize Swiper
+    // Detect if mobile for performance optimizations
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    // Initialize Swiper with mobile optimizations
     const swiper = new Swiper('.mySwiper', {
         effect: 'cards',
-        grabCursor: true,
+        grabCursor: !isMobile, // Disable grab cursor on mobile for performance
         centeredSlides: true,
         slidesPerView: 'auto',
+        speed: isMobile ? 250 : 300, // Faster transitions on mobile
         cardsEffect: {
-            perSlideOffset: 8,
-            perSlideRotate: 2,
+            perSlideOffset: isMobile ? 6 : 8, // Reduce offset on mobile
+            perSlideRotate: isMobile ? 1.5 : 2, // Reduce rotation on mobile
             rotate: true,
             slideShadows: false,
         },
@@ -359,46 +392,41 @@
             enabled: true,
             onlyInViewport: true,
         },
+        passiveListeners: true, // Use passive event listeners for better scroll performance
+        touchEventsTarget: 'container',
         on: {
             slideChange: function () {
-                // Update background gradient
-                document.body.style.background = backgroundGradients[this.activeIndex];
-                
-                // Restart animations for current slide
-                const currentSlide = this.slides[this.activeIndex];
-                const animElements = currentSlide.querySelectorAll('.anim-element');
-                animElements.forEach(el => {
-                    el.style.animation = 'none';
-                    el.offsetHeight; // Trigger reflow
-                    el.style.animation = null;
+                // Update background gradient using requestAnimationFrame for smoother updates
+                requestAnimationFrame(() => {
+                    document.body.style.background = backgroundGradients[this.activeIndex];
                 });
                 
                 // Remove dragging class from all cards
-                document.querySelectorAll('.card-inner').forEach(card => {
-                    card.classList.remove('dragging');
-                });
+                const cards = document.querySelectorAll('.card-inner');
+                cards.forEach(card => card.classList.remove('dragging'));
             },
             sliderMove: function () {
-                // Add dragging effect to active slide
+                // Add dragging effect to active slide (throttled on mobile)
+                if (isMobile && this._lastMove && Date.now() - this._lastMove < 50) return;
+                this._lastMove = Date.now();
+                
                 const activeSlide = this.slides[this.activeIndex];
                 if (activeSlide) {
                     const cardInner = activeSlide.querySelector('.card-inner');
-                    if (cardInner) {
+                    if (cardInner && !cardInner.classList.contains('dragging')) {
                         cardInner.classList.add('dragging');
                     }
                 }
             },
             touchEnd: function () {
                 // Remove dragging effect from all slides
-                document.querySelectorAll('.card-inner').forEach(card => {
-                    card.classList.remove('dragging');
-                });
+                const cards = document.querySelectorAll('.card-inner');
+                cards.forEach(card => card.classList.remove('dragging'));
             },
             transitionStart: function () {
                 // Remove dragging effect when transition starts
-                document.querySelectorAll('.card-inner').forEach(card => {
-                    card.classList.remove('dragging');
-                });
+                const cards = document.querySelectorAll('.card-inner');
+                cards.forEach(card => card.classList.remove('dragging'));
             }
         }
     });
@@ -406,46 +434,37 @@
     // Set initial background
     document.body.style.background = backgroundGradients[0];
 
-    // Additional mouse drag support for desktop
-    let isDragging = false;
-    
-    swiper.el.addEventListener('mousedown', () => {
-        isDragging = false;
-    });
-    
-    swiper.el.addEventListener('mousemove', (e) => {
-        if (e.buttons === 1) { // Left mouse button is pressed
-            if (!isDragging) {
+    // Desktop-only mouse drag support (skip on mobile for performance)
+    if (!isMobile) {
+        let isDragging = false;
+        
+        swiper.el.addEventListener('mousedown', () => {
+            isDragging = false;
+        }, { passive: true });
+        
+        swiper.el.addEventListener('mousemove', (e) => {
+            if (e.buttons === 1 && !isDragging) {
                 isDragging = true;
                 const activeSlide = swiper.slides[swiper.activeIndex];
                 if (activeSlide) {
                     const cardInner = activeSlide.querySelector('.card-inner');
-                    if (cardInner) {
-                        cardInner.classList.add('dragging');
-                    }
+                    if (cardInner) cardInner.classList.add('dragging');
                 }
             }
-        }
-    });
-    
-    swiper.el.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            document.querySelectorAll('.card-inner').forEach(card => {
-                card.classList.remove('dragging');
-            });
-        }
-    });
-    
-    // Handle mouse leave to clean up dragging state
-    swiper.el.addEventListener('mouseleave', () => {
-        if (isDragging) {
-            isDragging = false;
-            document.querySelectorAll('.card-inner').forEach(card => {
-                card.classList.remove('dragging');
-            });
-        }
-    });
+        }, { passive: true });
+        
+        const cleanupDrag = () => {
+            if (isDragging) {
+                isDragging = false;
+                document.querySelectorAll('.card-inner').forEach(card => {
+                    card.classList.remove('dragging');
+                });
+            }
+        };
+        
+        swiper.el.addEventListener('mouseup', cleanupDrag, { passive: true });
+        swiper.el.addEventListener('mouseleave', cleanupDrag, { passive: true });
+    }
 </script>
 
 </body>
